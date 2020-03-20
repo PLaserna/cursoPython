@@ -8,13 +8,13 @@ import datetime
 
 cantidad = float(input("Introduce la cantidad de dolares para realizar el cálculo: "))
 interes = float(input("Introduce la tasa de interés (porcentaje): "))
-años = int(input("Introduce el número de años: "))
+anyos = int(input("Introduce el número de años: "))
 ahora = datetime.datetime.now()
 
-total = cantidad * (1 + interes / 100) ** años
+total = cantidad * (1 + interes / 100) ** anyos
 
 print("--------------------")
 print("Cantidad: " + str(cantidad) + "$")
 print("Tasa de interés: " + str(interes) + "%")
-print("Años: " + str(años))
-print("\nEn " + str(ahora.year+años) + " tendrás: " + str(round(total,2)) + "$")
+print("Años: " + str(anyos))
+print("\nEn " + str(ahora.year+anyos) + " tendrás: " + str(round(total,2)) + "$")
