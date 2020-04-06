@@ -1,0 +1,123 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'ventanas/introducir_videojuego.ui'
+#
+# Created by: PyQt5 UI code generator 5.13.2
+#
+# WARNING! All changes made in this file will be lost!
+
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+
+class Ui_Dialog(object):
+    def setupUi(self, Dialog):
+        Dialog.setObjectName("Dialog")
+        Dialog.resize(562, 562)
+        Dialog.setMinimumSize(QtCore.QSize(562, 562))
+        Dialog.setMaximumSize(QtCore.QSize(562, 562))
+        self.formLayoutWidget = QtWidgets.QWidget(Dialog)
+        self.formLayoutWidget.setGeometry(QtCore.QRect(30, 130, 501, 370))
+        self.formLayoutWidget.setObjectName("formLayoutWidget")
+        self.formLayout = QtWidgets.QFormLayout(self.formLayoutWidget)
+        self.formLayout.setContentsMargins(0, 0, 0, 0)
+        self.formLayout.setObjectName("formLayout")
+        self.lbl_titulo = QtWidgets.QLabel(self.formLayoutWidget)
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setBold(True)
+        font.setWeight(75)
+        self.lbl_titulo.setFont(font)
+        self.lbl_titulo.setObjectName("lbl_titulo")
+        self.formLayout.setWidget(0, QtWidgets.QFormLayout.LabelRole, self.lbl_titulo)
+        self.lin_titulo = QtWidgets.QLineEdit(self.formLayoutWidget)
+        self.lin_titulo.setObjectName("lin_titulo")
+        self.formLayout.setWidget(0, QtWidgets.QFormLayout.FieldRole, self.lin_titulo)
+        self.lbl_plataforma = QtWidgets.QLabel(self.formLayoutWidget)
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setBold(True)
+        font.setWeight(75)
+        self.lbl_plataforma.setFont(font)
+        self.lbl_plataforma.setObjectName("lbl_plataforma")
+        self.formLayout.setWidget(1, QtWidgets.QFormLayout.LabelRole, self.lbl_plataforma)
+        self.lin_plataforma = QtWidgets.QLineEdit(self.formLayoutWidget)
+        self.lin_plataforma.setObjectName("lin_plataforma")
+        self.formLayout.setWidget(1, QtWidgets.QFormLayout.FieldRole, self.lin_plataforma)
+        self.lbl_genero = QtWidgets.QLabel(self.formLayoutWidget)
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setBold(True)
+        font.setWeight(75)
+        self.lbl_genero.setFont(font)
+        self.lbl_genero.setObjectName("lbl_genero")
+        self.formLayout.setWidget(2, QtWidgets.QFormLayout.LabelRole, self.lbl_genero)
+        self.lin_genero = QtWidgets.QLineEdit(self.formLayoutWidget)
+        self.lin_genero.setObjectName("lin_genero")
+        self.formLayout.setWidget(2, QtWidgets.QFormLayout.FieldRole, self.lin_genero)
+        self.lbl_precio = QtWidgets.QLabel(self.formLayoutWidget)
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setBold(True)
+        font.setWeight(75)
+        self.lbl_precio.setFont(font)
+        self.lbl_precio.setObjectName("lbl_precio")
+        self.formLayout.setWidget(3, QtWidgets.QFormLayout.LabelRole, self.lbl_precio)
+        self.lbl_anyo = QtWidgets.QLabel(self.formLayoutWidget)
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setBold(True)
+        font.setWeight(75)
+        self.lbl_anyo.setFont(font)
+        self.lbl_anyo.setObjectName("lbl_anyo")
+        self.formLayout.setWidget(4, QtWidgets.QFormLayout.LabelRole, self.lbl_anyo)
+        self.cal_anyo = QtWidgets.QCalendarWidget(self.formLayoutWidget)
+        self.cal_anyo.setAutoFillBackground(False)
+        self.cal_anyo.setObjectName("cal_anyo")
+        self.formLayout.setWidget(4, QtWidgets.QFormLayout.FieldRole, self.cal_anyo)
+        self.spb_precio = QtWidgets.QDoubleSpinBox(self.formLayoutWidget)
+        self.spb_precio.setObjectName("spb_precio")
+        self.formLayout.setWidget(3, QtWidgets.QFormLayout.FieldRole, self.spb_precio)
+        self.lbl_introduce = QtWidgets.QLabel(Dialog)
+        self.lbl_introduce.setGeometry(QtCore.QRect(30, 30, 501, 71))
+        font = QtGui.QFont()
+        font.setFamily("Showcard Gothic")
+        font.setPointSize(12)
+        font.setUnderline(True)
+        self.lbl_introduce.setFont(font)
+        self.lbl_introduce.setAutoFillBackground(False)
+        self.lbl_introduce.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.lbl_introduce.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.lbl_introduce.setAlignment(QtCore.Qt.AlignCenter)
+        self.lbl_introduce.setObjectName("lbl_introduce")
+        self.btn_registrar_videojuego = QtWidgets.QPushButton(Dialog)
+        self.btn_registrar_videojuego.setGeometry(QtCore.QRect(330, 510, 200, 32))
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("ventanas\\../imagenes/save.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btn_registrar_videojuego.setIcon(icon)
+        self.btn_registrar_videojuego.setObjectName("btn_registrar_videojuego")
+
+        self.retranslateUi(Dialog)
+        QtCore.QMetaObject.connectSlotsByName(Dialog)
+
+    def retranslateUi(self, Dialog):
+        _translate = QtCore.QCoreApplication.translate
+        Dialog.setWindowTitle(_translate("Dialog", "Introducir videojuego"))
+        self.lbl_titulo.setText(_translate("Dialog", "Título: "))
+        self.lbl_plataforma.setText(_translate("Dialog", "Plataforma: "))
+        self.lbl_genero.setText(_translate("Dialog", "Género: "))
+        self.lbl_precio.setText(_translate("Dialog", "Precio: "))
+        self.lbl_anyo.setText(_translate("Dialog", "Año: "))
+        self.lbl_introduce.setText(_translate("Dialog", "Introduce los datos del videojuego\n"
+"para registrarlo"))
+        self.btn_registrar_videojuego.setText(_translate("Dialog", "Registrar videojuego"))
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    Dialog = QtWidgets.QDialog()
+    ui = Ui_Dialog()
+    ui.setupUi(Dialog)
+    Dialog.show()
+    sys.exit(app.exec_())

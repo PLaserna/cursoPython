@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>802</width>
+    <height>666</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>802</width>
+    <height>666</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>802</width>
+    <height>666</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Inicio</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="lbl_titulo">
+      <property name="font">
+       <font>
+        <family>Showcard Gothic</family>
+        <pointsize>14</pointsize>
+        <underline>true</underline>
+       </font>
+      </property>
+      <property name="text">
+       <string>Aplicación de gestión de videojuegos en formato físico
+(Usando PyQt5)</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="lbl_imagen_portada">
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>../imagenes/videojuegos_780x470.jpg</pixmap>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>802</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_videojuegos">
+    <property name="title">
+     <string>Videojuegos</string>
+    </property>
+    <widget class="QMenu" name="subm_listar_videojuegos">
+     <property name="title">
+      <string>Listar videojuegos</string>
+     </property>
+     <addaction name="subm_listado_normal"/>
+     <addaction name="subm_listado_List_Widget"/>
+     <addaction name="subm_listado_Table_Widget"/>
+    </widget>
+    <addaction name="subm_registrar_videojuego"/>
+    <addaction name="subm_editar_videojuego"/>
+    <addaction name="separator"/>
+    <addaction name="subm_listar_videojuegos"/>
+   </widget>
+   <addaction name="menu_videojuegos"/>
+  </widget>
+  <widget class="QStatusBar" name="sts_barra">
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="sizeGripEnabled">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <action name="subm_registrar_videojuego">
+   <property name="text">
+    <string>Registrar videojuego</string>
+   </property>
+  </action>
+  <action name="subm_listado_normal">
+   <property name="text">
+    <string>Listado normal</string>
+   </property>
+  </action>
+  <action name="subm_listado_List_Widget">
+   <property name="text">
+    <string>Listado (List Widget)</string>
+   </property>
+  </action>
+  <action name="subm_listado_Table_Widget">
+   <property name="text">
+    <string>Listado (Table Widget)</string>
+   </property>
+  </action>
+  <action name="subm_editar_videojuego">
+   <property name="text">
+    <string>Borrar / Editar videojuego</string>
+   </property>
+  </action>
+  <action name="subm_modificar_videojuego">
+   <property name="text">
+    <string>Modificar videojuego</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

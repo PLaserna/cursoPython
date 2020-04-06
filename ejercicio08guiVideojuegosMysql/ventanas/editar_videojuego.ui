@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>562</width>
+    <height>350</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>562</width>
+    <height>350</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>562</width>
+    <height>350</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Borrar / Editar videojuego</string>
+  </property>
+  <widget class="QWidget" name="formLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>130</y>
+     <width>501</width>
+     <height>151</height>
+    </rect>
+   </property>
+   <layout class="QFormLayout" name="lay_busqueda">
+    <item row="0" column="0">
+     <widget class="QLabel" name="lbl_id">
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Id:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="lin_id"/>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="lbl_titulo">
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Título: </string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="lin_titulo"/>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="lbl_plataforma">
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Plataforma: </string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="lin_plataforma"/>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="lbl_genero">
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Género: </string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QLineEdit" name="lin_genero"/>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="lbl_precio">
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Precio: </string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QLineEdit" name="lin_precio"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QLabel" name="lbl_introduce">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>30</y>
+     <width>501</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Showcard Gothic</family>
+     <pointsize>12</pointsize>
+     <underline>true</underline>
+    </font>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::NoFrame</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Plain</enum>
+   </property>
+   <property name="text">
+    <string>Introduce los datos del videojuego
+para la busqueda</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_buscar_videojuego">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>300</y>
+     <width>200</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Buscar videojuego</string>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../imagenes/lupa.png</normaloff>../imagenes/lupa.png</iconset>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_borrar_videojuego">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>790</y>
+     <width>200</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Borrar videojuego</string>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../imagenes/papelera.png</normaloff>../imagenes/papelera.png</iconset>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbl_numero_juegos">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>750</y>
+     <width>200</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QListWidget" name="lst_videojuegos_encontrados">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>350</y>
+     <width>501</width>
+     <height>401</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_limpiar_formulario">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>300</y>
+     <width>200</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Limpiar formulario</string>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../imagenes/clean.png</normaloff>../imagenes/clean.png</iconset>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_editar_videojuego">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>790</y>
+     <width>200</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Modificar videojuego</string>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../imagenes/write.png</normaloff>../imagenes/write.png</iconset>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
