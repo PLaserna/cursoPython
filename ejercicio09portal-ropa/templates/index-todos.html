@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Inicio</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='estilos.css') }}"></link>
+</head>
+
+<body>
+
+<a name="inicio"></a>
+
+<div class="contenido">
+
+<header><h1>Portal de anuncios de ropa</h1></header>
+
+<div class="izquierda">
+    <a href="registrar-anuncio">Registrar nuevo anuncio</a>
+</div>
+<div class="derecha">
+    <a href="/">Ver solo anuncios validados</a>
+</div>
+
+<h2>Listado de anuncios:</h2>
+
+{% for a in var_anuncios %}
+    <div class="anuncio">
+        <span style="float:left;width:77%;">
+            <b> {{ a[1] }} ( {{ a[2] }} ) </b><br/><br/>
+            Marca: {{ a[3] }} - Talla: {{ a[4] }} <br/>
+            Descripción: {{ a[5] }} <br/>
+            Precio: {{ a[6] }} euros <br/><br/>
+            E-mail de contacto: <b> {{ a[7] }} </b>
+        </span>
+        <div style="float:left;width:20%;">
+            <img src="../static/imagenes/{{ a[0] }}.jpg" style="width:200px;border:solid thin #1C1CB3;" onerror="this.src='../static/imagenes/sin_imagen.jpg';">
+        </div>
+    </div>
+{% endfor %}
+
+<footer>
+    <div class="izquierda">
+        <a href="#inicio">
+            Ir al inicio
+        </a>
+    </div>
+    <div class="derecha">
+        Creado por: Pedro Laserna Lizana
+    </div>
+</footer>
+
+</div>
+
+</body>
+</html>

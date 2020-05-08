@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Editar anuncio</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='estilos.css') }}"></link>
+</head>
+<body>
+
+<div class="contenido" style="background:#FFD660;">
+
+<header class="header-admin"><h1>Administración del portal</h1></header>
+
+<h2 class="h2-admin">Actualiza los datos del anuncio:</h2>
+
+<form action="guardar-cambios-anuncio" method="POST" enctype="multipart/form-data" class="form-admin">
+
+<table>
+
+<tr>
+<td><p><label>Id: </label></p></td>
+<td>
+<input type="text" name="id_informativa" required="true" value="{{ prenda.id }}" disabled/>
+<input type="hidden" name="id" required="true" value="{{ prenda.id }}"/>
+</td>
+</tr>
+<tr>
+<td><p><label>Categoría: </label></p></td>
+<td><select name="categoria" required="true"/>
+    {% for c in var_categorias %}
+        {% if c[0] != 1 %}
+            {% if prenda.id_categoria == c[0] %}
+                <option value="{{ c[0] }}" selected="selected">{{ c[1] }}</option>
+            {% else %}
+                <option value="{{ c[0] }}">{{ c[1] }}</option>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+    </td>
+</tr>
+<tr>
+<td><p><label>Género: </label></p></td>
+<td>
+{% if prenda.genero == "Unisex" %}
+    <input type="radio" value="Unisex" name="genero" checked="checked"/>Unisex
+{% else %}
+    <input type="radio" value="Unisex" name="genero"/>Unisex
+{% endif %}
+{% if prenda.genero == "Mujer" %}
+    <input type="radio" value="Mujer" name="genero" checked="checked"/>Mujer
+{% else %}
+    <input type="radio" value="Mujer" name="genero"/>Mujer
+{% endif %}
+{% if prenda.genero == "Hombre" %}
+    <input type="radio" value="Hombre" name="genero" checked="checked"/>Hombre
+{% else %}
+    <input type="radio" value="Hombre" name="genero"/>Hombre
+{% endif %}
+</td>
+</tr>
+<tr>
+<td><p><label>Marca: </label></p></td>
+<td><input type="text" name="marca" value="{{ prenda.marca }}"/></td>
+</tr>
+<tr>
+<td><p><label>Talla: </label></p></td>
+<td>
+<select name="talla">
+    {% if prenda.talla == "XS" %}
+        <option value="XS" selected="selected">XS</option>
+    {% else %}
+        <option value="XS">XS</option>
+    {% endif %}
+    {% if prenda.talla == "S" %}
+        <option value="S" selected="selected">S</option>
+    {% else %}
+        <option value="S">S</option>
+    {% endif %}
+    {% if prenda.talla == "M" %}
+        <option value="M" selected="selected">M</option>
+    {% else %}
+        <option value="M">M</option>
+    {% endif %}
+    {% if prenda.talla == "L" %}
+        <option value="L" selected="selected">L</option>
+    {% else %}
+        <option value="L">L</option>
+    {% endif %}
+    {% if prenda.talla == "XL" %}
+        <option value="XL" selected="selected">XL</option>
+    {% else %}
+        <option value="XL">XL</option>
+    {% endif %}
+    {% if prenda.talla == "XXL" %}
+        <option value="XXL" selected="selected">XXL</option>
+    {% else %}
+        <option value="XXL">XXL</option>
+    {% endif %}
+</select>
+</td>
+</tr>
+<tr>
+<td><p><label>Precio: </label></p></td>
+<td><input type="number" name="precio" step="0.01" min="0.01" required="true" value="{{ prenda.precio }}"/> euros</td>
+</tr>
+<tr>
+<td><p><label>Descripción: </label></p></td>
+<td><textarea name="descripcion" rows="4" cols="50" maxlength="255">{{ prenda.descripcion }}</textarea></td>
+</tr>
+<tr>
+<td><p><label>E-mail de contacto: </label></p></td>
+<td><input type="email" name="email" required="true" value="{{ prenda.email }}"/></td>
+</tr>
+<tr>
+<td><p><label>E-mail válido: </label></p></td>
+<td>
+{% if prenda.email_valido == "NO" %}
+    <input type="radio" value="NO" name="email-valido" checked="checked"/>NO
+{% else %}
+    <input type="radio" value="NO" name="email-valido"/>NO
+{% endif %}
+{% if prenda.email_valido == "SI" %}
+    <input type="radio" value="SI" name="email-valido" checked="checked"/>SI
+{% else %}
+    <input type="radio" value="SI" name="email-valido"/>SI
+{% endif %}
+</td>
+</tr>
+<tr>
+<td><p><label>Añadir/cambiar imagen: </label></p></td>
+<td><input type="file" name="imagen" id="seleccion-imagen" accept=".jpg"></td>
+</tr>
+<tr>
+<td></td>
+<td><img id="img" src="../../static/imagenes/{{ prenda.id }}.jpg" width="200px" border="solid 1px" onerror="this.src='../../static/imagenes/sin_imagen.jpg';">
+<script>
+    function init() {
+          var fichero = document.getElementById('seleccion-imagen');
+          fichero.addEventListener('change', mostrarImagen, false);
+        }
+
+        function mostrarImagen(event) {
+          var file = event.target.files[0];
+          var reader = new FileReader();
+          reader.onload = function(event) {
+            var img = document.getElementById('img');
+            img.src = event.target.result;
+          }
+          reader.readAsDataURL(file);
+        }
+    window.addEventListener('load', init, false);
+</script>
+</td>
+</tr>
+
+</table>
+<br/>
+<div class="centrar">
+    <input type="submit" value="Guardar cambios" class="boton" id="admin"/>
+</div>
+<br/>
+
+</table>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Administración</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='estilos.css') }}"></link>
+</head>
+<body>
+<div class="contenido" style="background:#FFD660;">
+
+<header class="header-admin"><h1>Administración del portal</h1></header>
+
+<h2 class="h2-admin">Introduce la contraseña para entrar:</h2>
+
+<form action="login-admin" method="POST" class="form-admin">
+
+<label style="float:left;">Contraseña: &nbsp</label>
+<input type="password" name="clave" style="float:left;"><div style="float:left;color:red;">&nbsp {{ error_login }}</div><br/><br/>
+
+<div class="centrar">
+    <input type="submit" value="Acceder" class="boton" id="admin"/> 
+</div>
+<br/>
+
+</form>
+
+<footer class="footer-admin">
+    <div style="text-align: left; float: left; width: 380px;">
+        <a href="/" id="admin">
+            Ir al inicio
+        </a>
+    </div>
+    <div  style="text-align: right; float: right; width: 380px;">
+        Creado por: Pedro Laserna Lizana
+    </div>
+</footer>
+
+</div>
+</body>
+</html>

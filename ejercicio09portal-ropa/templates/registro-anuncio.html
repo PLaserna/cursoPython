@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Registrar anuncio</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='estilos.css') }}"></link>
+</head>
+<body>
+
+<div class="contenido">
+
+<header><h1>Portal de anuncios de ropa</h1></header>
+
+<h2>Introduce los datos de tu anuncio:</h2>
+
+<form action="guardar-nuevo-anuncio" method="POST" enctype="multipart/form-data">
+
+<table>
+
+<tr>
+<td><p><label>Categoría: </label></p></td>
+<td><select name="categoria" required="true"/>
+    <option value="1">Elija una categoría...</option>
+    {% for c in var_categorias %}
+        {% if c[0] != 1 %}
+            <option value="{{ c[0] }}">{{ c[1] }}</option>
+        {% endif %}
+    {% endfor %}
+    </td>
+</tr>
+<tr>
+<td><p><label>Género: </label></p></td>
+<td><input type="radio" value="Unisex" name="genero" checked="checked"/>Unisex
+<input type="radio" value="Mujer" name="genero"/>Mujer
+<input type="radio" value="Hombre" name="genero"/>Hombre
+</td>
+</tr>
+<tr>
+<td><p><label>Marca: </label></p></td>
+<td><input type="text" name="marca"/></td>
+</tr>
+<tr>
+<td><p><label>Talla: </label></p></td>
+<td>
+<select name="talla">
+    <option value="XS">XS</option>
+    <option value="S">S</option>
+    <option value="M" selected="selected">M</option>
+    <option value="L">L</option>
+    <option value="XL">XL</option>
+    <option value="XXL">XXL</option>
+</select>
+</td>
+<tr>
+<td><p><label>Precio: </label></p></td>
+<td><input type="number" name="precio" step="0.01" min="0.01" required="true"/> euros</td>
+</tr>
+<tr>
+<td><p><label>Descripción: </label></p></td>
+<td><textarea name="descripcion" rows="4" cols="50" placeholder="Escriba una descripción de la prenda..." maxlength="255"></textarea></td>
+</tr>
+<tr>
+<td><p><label>E-mail de contacto: </label></p></td>
+<td><input type="email" name="email" required="true"/></td>
+</tr>
+<tr>
+<td><p><label>Añadir imagen: </label></p></td>
+<td><input type="file" name="imagen" id="seleccion-imagen" accept=".jpg"></td>
+</tr>
+<tr>
+<td></td>
+<td><img id="img" src="" width="200px" border="solid 1px">
+<script>
+    function init() {
+          var fichero = document.getElementById('seleccion-imagen');
+          fichero.addEventListener('change', mostrarImagen, false);
+        }
+
+        function mostrarImagen(event) {
+          var file = event.target.files[0];
+          var reader = new FileReader();
+          reader.onload = function(event) {
+            var img = document.getElementById('img');
+            img.src = event.target.result;
+          }
+          reader.readAsDataURL(file);
+        }
+    window.addEventListener('load', init, false);
+</script>
+</td>
+</tr>
+
+</table>
+<br/>
+<div class="centrar">
+    <input type="submit" value="Registrar anuncio" class="boton"/>
+    <input type="reset" value="Limpiar formulario" class="boton"/>
+</div>
+<br/>
+</form>
+
+<footer>
+    <div class="izquierda">
+        <a href="/">
+            Ir al inicio
+        </a>
+    </div>
+    <div  class="derecha">
+        Creado por: Pedro Laserna Lizana
+    </div>
+</footer>
+
+</div>
+</body>
+</html>

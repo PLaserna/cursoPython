@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Inicio</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='estilos.css') }}"></link>
+</head>
+
+<body>
+
+<a name="inicio"></a>
+
+<div class="contenido">
+
+<header><h1>Portal de anuncios de ropa</h1></header>
+
+<div class="izquierda">
+    <a href="registrar-anuncio">Registrar nuevo anuncio</a><br/>
+    <form action="index-filtrado" method="POST">
+	    <fieldset id="categorias">
+	    <legend>Filtrar por categoría: </legend>
+	        <label>Todas</label>
+            <input type="checkbox" id="todas" name="todas" value="%" checked>
+            <label>Camisetas</label>
+            <input type="checkbox" id="camisetas" name="camisetas" value="2">
+            <label>Camisas</label>
+            <input type="checkbox" id="camisas" name="camisas" value="3"><br/>
+            <label>Pantalones</label>
+            <input type="checkbox" id="pantalones" name="pantalones" value="4">
+            <label>Faldas</label>
+            <input type="checkbox" id="faldas" name="faldas" value="5">
+            <label>Complementos</label>
+            <input type="checkbox" id="complementos" name="complementos" value="6"><br/>
+            <label>Sombreros</label>
+            <input type="checkbox" id="sombreros" name="sombreros" value="7">
+            <label>Ropa interior</label>
+            <input type="checkbox" id="ropa_interior" name="ropa_interior" value="8">
+            <label>Abrigos</label>
+            <input type="checkbox" id="abrigos" name="abrigos" value="9"><br/>
+            <label>Vestidos</label>
+            <input type="checkbox" id="vestidos" name="vestidos" value="10"       >
+            <label>Sudaderas</label>
+            <input type="checkbox" id="sudaderas" name="sudaderas" value="11">
+            <label>Ropa de casa</label>
+            <input type="checkbox" id="ropa_casa" name="ropa_casa" value="12"><br/>
+	    </fieldset>
+    </form>
+</div>
+<div class="derecha">
+    <a href="index-todos">Ver todos los anuncios</a>
+</div>
+
+<h2>Listado de anuncios:</h2>
+
+{% for a in var_anuncios %}
+    {% if a[8] == "SI" %}
+	    <div class="anuncio">
+		    <span style="float:left;width:77%;">
+			    <b> {{ a[1] }} ( {{ a[2] }} ) </b><br/><br/>
+			    Marca: {{ a[3] }} - Talla: {{ a[4] }} <br/>
+			    Descripción: {{ a[5] }} <br/>
+			    Precio: {{ a[6] }} euros <br/><br/>
+			    E-mail de contacto: <b> {{ a[7] }} </b>
+		    </span>
+		    <div style="float:left;width:20%;">
+		        <img src="../static/imagenes/{{ a[0] }}.jpg" style="width:200px;border:solid thin #1C1CB3;" onerror="this.src='../static/imagenes/sin_imagen.jpg';">
+		    </div>
+        </div>
+    {% endif %}
+{% endfor %}
+
+<footer>
+    <div class="izquierda">
+        <a href="#inicio">
+            Ir al inicio
+        </a>
+    </div>
+    <div class="derecha">
+        Creado por: Pedro Laserna Lizana
+    </div>
+</footer>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Listado anuncios Admin</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='estilos.css') }}"></link>
+</head>
+<body>
+
+<a name="inicio"></a>
+
+<div class="contenido" style="background:#FFD660;">
+
+<header class="header-admin"><h1>Administración del portal</h1></header>
+
+<div class="izquierda"></div>
+<div class="derecha">
+    <a href="cerrar-sesion" style="color:red;">Cerrar sesión</a>
+</div>
+
+<div class="centrar"><h2 class="h2-admin">Listado de anuncios:</h2></div>
+
+{% for a in var_anuncios %}
+    <div class="anuncio-admin">
+        <span class="span-admin" style="float:left;width:77%;">
+        Id: <b>{{ a[0] }}</b><br/>
+        <b> {{ a[1] }} ( {{ a[2] }} ) </b><br/><br/>
+        Marca: {{ a[3] }} - Talla: {{ a[4] }} <br/>
+        Descripción: {{ a[5] }} <br/>
+        Precio: {{ a[6] }} euros <br/><br/>
+        E-mail de contacto: <b> {{ a[7] }} </b> - Validado: <b> {{ a[8] }} </b>
+        </span><br/><br/>
+        <div style="float:left;width:20%;margin-top:-4.2%;">
+            <img src="../../static/imagenes/{{ a[0] }}.jpg" style="width:200px;border:solid thin #684E00;" onerror="this.src='../../static/imagenes/sin_imagen.jpg';">
+        </div>
+        <div style="float:left;width:100%;margin-top:1%;">
+            <a href="borrar-anuncio?id={{ a[0] }}" onclick="return confirm('¿Estás seguro de borrar el anuncio?');" style="color:#684E00;">Borrar</a>
+            <a href="editar-anuncio?id={{ a[0] }}" style="color:#684E00;">Editar</a>
+        </div>
+    </div>
+{% endfor %}
+
+<footer class="footer-admin">
+    <div class="izquierda">
+        <a href="#inicio" id="admin">
+            Ir al inicio del listado
+        </a>
+    </div>
+    <div class="derecha">
+        Creado por: Pedro Laserna Lizana
+    </div>
+</footer>
+
+</div>
+
+</body>
+</html>
