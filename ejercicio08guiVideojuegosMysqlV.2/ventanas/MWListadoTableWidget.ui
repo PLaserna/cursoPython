@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>640</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>640</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>800</width>
+    <height>640</height>
+   </size>
+  </property>
+  <property name="focusPolicy">
+   <enum>Qt::TabFocus</enum>
+  </property>
+  <property name="windowTitle">
+   <string>Listado Table Widget</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>imagenes_ventanas/mando.png</normaloff>imagenes_ventanas/mando.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="lbl_listado_videojuegos">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>780</width>
+      <height>90</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Listado de Videojuegos</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_juegos_listados">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>590</y>
+      <width>781</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="tbl_listado_videojuegos">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>110</y>
+      <width>780</width>
+      <height>471</height>
+     </rect>
+    </property>
+    <property name="sizeAdjustPolicy">
+     <enum>QAbstractScrollArea::AdjustToContents</enum>
+    </property>
+    <property name="editTriggers">
+     <set>QAbstractItemView::NoEditTriggers</set>
+    </property>
+    <column>
+     <property name="text">
+      <string>Id</string>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>10</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+       <underline>true</underline>
+      </font>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Título</string>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>10</pointsize>
+       <underline>true</underline>
+      </font>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Plataforma</string>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>10</pointsize>
+       <underline>true</underline>
+      </font>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Género</string>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>10</pointsize>
+       <underline>true</underline>
+      </font>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Nota</string>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>10</pointsize>
+       <underline>true</underline>
+      </font>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Prestado</string>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>10</pointsize>
+       <underline>true</underline>
+      </font>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Apuntes</string>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>10</pointsize>
+       <underline>true</underline>
+      </font>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Imagen</string>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>10</pointsize>
+       <underline>true</underline>
+      </font>
+     </property>
+    </column>
+   </widget>
+  </widget>
+  <action name="subm_anadir_videjuego">
+   <property name="text">
+    <string>Añadir Videojuego</string>
+   </property>
+  </action>
+  <action name="subm_editar_videojuego">
+   <property name="text">
+    <string>Editar Videojuego</string>
+   </property>
+  </action>
+  <action name="subm_borrar_videojuego">
+   <property name="text">
+    <string>Borrar Videojuego</string>
+   </property>
+  </action>
+  <action name="subm_listado_normal">
+   <property name="text">
+    <string>Listado Normal</string>
+   </property>
+  </action>
+  <action name="subm_listado_list_widget">
+   <property name="text">
+    <string>Listado (List Widget)</string>
+   </property>
+  </action>
+  <action name="subm_listado_table_widget">
+   <property name="text">
+    <string>Listado (Table Widget)</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

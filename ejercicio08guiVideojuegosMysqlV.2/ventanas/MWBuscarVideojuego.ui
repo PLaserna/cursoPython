@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>432</width>
+    <height>651</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>432</width>
+    <height>651</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>432</width>
+    <height>651</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Buscar Videojuego</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>imagenes_ventanas/mando.png</normaloff>imagenes_ventanas/mando.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="lbl_introduzca_datos">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>411</width>
+      <height>90</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Introduzca los datos
+del Videojuego a buscar</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_ayuda">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>600</y>
+      <width>411</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 0, 0);
+font: 75 italic 8pt &quot;MS Sans Serif&quot;;</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_buscar">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>540</y>
+      <width>200</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Buscar</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>imagenes_ventanas/lupa.png</normaloff>imagenes_ventanas/lupa.png</iconset>
+    </property>
+    <property name="autoDefault">
+     <bool>true</bool>
+    </property>
+    <property name="default">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_limpiar">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>540</y>
+      <width>200</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Limpiar</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>imagenes_ventanas/escoba.png</normaloff>imagenes_ventanas/escoba.png</iconset>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_resultado">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>10</y>
+      <width>761</width>
+      <height>90</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Resultado</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="tbl_juegos_encontrados">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>110</y>
+      <width>761</width>
+      <height>421</height>
+     </rect>
+    </property>
+    <property name="sizeAdjustPolicy">
+     <enum>QAbstractScrollArea::AdjustToContents</enum>
+    </property>
+    <property name="editTriggers">
+     <set>QAbstractItemView::NoEditTriggers</set>
+    </property>
+    <attribute name="horizontalHeaderCascadingSectionResizes">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="horizontalHeaderStretchLastSection">
+     <bool>false</bool>
+    </attribute>
+    <column>
+     <property name="text">
+      <string>Id</string>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>10</pointsize>
+       <underline>true</underline>
+      </font>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Título</string>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>10</pointsize>
+       <underline>true</underline>
+      </font>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Plataforma</string>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>10</pointsize>
+       <underline>true</underline>
+      </font>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Género</string>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>10</pointsize>
+       <underline>true</underline>
+      </font>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Nota</string>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>10</pointsize>
+       <underline>true</underline>
+      </font>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Prestado</string>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>10</pointsize>
+       <underline>true</underline>
+      </font>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Apuntes</string>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>10</pointsize>
+       <underline>true</underline>
+      </font>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Imagen</string>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>10</pointsize>
+       <underline>true</underline>
+      </font>
+     </property>
+    </column>
+   </widget>
+   <widget class="QPushButton" name="btn_editar">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>800</x>
+      <y>540</y>
+      <width>200</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Editar</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>imagenes_ventanas/escribir.png</normaloff>imagenes_ventanas/escribir.png</iconset>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_borrar">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>1010</x>
+      <y>540</y>
+      <width>200</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Borrar</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>imagenes_ventanas/papelera.png</normaloff>imagenes_ventanas/papelera.png</iconset>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_juegos_encontrados">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>600</y>
+      <width>761</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QWidget" name="formLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>110</y>
+      <width>411</width>
+      <height>420</height>
+     </rect>
+    </property>
+    <layout class="QFormLayout" name="lay_introduzca_datos">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetDefaultConstraint</enum>
+     </property>
+     <property name="fieldGrowthPolicy">
+      <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+     </property>
+     <property name="horizontalSpacing">
+      <number>66</number>
+     </property>
+     <property name="verticalSpacing">
+      <number>21</number>
+     </property>
+     <property name="bottomMargin">
+      <number>0</number>
+     </property>
+     <item row="0" column="0">
+      <widget class="QLabel" name="lbl_id">
+       <property name="font">
+        <font>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Id: </string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="le_id">
+       <property name="readOnly">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="lbl_titulo">
+       <property name="font">
+        <font>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Título: </string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="le_titulo"/>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="lbl_genero">
+       <property name="font">
+        <font>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Género: </string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="le_genero"/>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="lbl_plataforma">
+       <property name="font">
+        <font>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Plataforma: </string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QComboBox" name="cmb_plataforma">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <item>
+        <property name="text">
+         <string>PC</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="lbl_prestado">
+       <property name="text">
+        <string>Prestado: </string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="lbl_anotaciones">
+       <property name="text">
+        <string>Anotaciones: </string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QLineEdit" name="le_apuntes">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QGroupBox" name="gb_plataformas">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="title">
+        <string>Todas</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="2" column="0">
+         <widget class="QRadioButton" name="rb_nintendo">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>Nintendo</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QRadioButton" name="rb_sega">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>Sega</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QRadioButton" name="rb_microsoft">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>Microsoft</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QRadioButton" name="rb_pc">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>PC</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QRadioButton" name="rb_sony">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>Sony</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QGroupBox" name="gb_prestado">
+       <property name="title">
+        <string>Todos</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="0" column="0">
+         <widget class="QRadioButton" name="rb_prestado_si">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>Si</string>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QRadioButton" name="rb_prestado_no">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>No</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>432</width>
+    <height>625</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>432</width>
+    <height>625</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>432</width>
+    <height>625</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Editar Videojuego</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>imagenes_ventanas/mando.png</normaloff>imagenes_ventanas/mando.png</iconset>
+  </property>
+  <widget class="QLabel" name="lbl_introduzca_datos">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>411</width>
+     <height>90</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Modifique los datos
+del Videojuego</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_guardar">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>540</y>
+     <width>200</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Guardar</string>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>imagenes_ventanas/diskete.png</normaloff>imagenes_ventanas/diskete.png</iconset>
+   </property>
+   <property name="autoDefault">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbl_ayuda">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>600</y>
+     <width>411</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>MS Sans Serif</family>
+     <pointsize>8</pointsize>
+     <weight>9</weight>
+     <italic>true</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 0, 0);
+font: 75 italic 8pt &quot;MS Sans Serif&quot;;</string>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ff0000;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="textFormat">
+    <enum>Qt::RichText</enum>
+   </property>
+  </widget>
+  <widget class="QWidget" name="formLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>110</y>
+     <width>411</width>
+     <height>422</height>
+    </rect>
+   </property>
+   <layout class="QFormLayout" name="lay_introduzca_datos">
+    <property name="horizontalSpacing">
+     <number>40</number>
+    </property>
+    <property name="verticalSpacing">
+     <number>7</number>
+    </property>
+    <item row="1" column="0">
+     <widget class="QLabel" name="lbl_titulo">
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Título: </string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="le_titulo"/>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="lbl_genero">
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Género: </string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="le_genero"/>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="lbl_plataforma">
+      <property name="font">
+       <font>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Plataforma: </string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <widget class="QRadioButton" name="rb_pc">
+        <property name="text">
+         <string>PC</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QRadioButton" name="rb_sega">
+        <property name="text">
+         <string>Sega</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QRadioButton" name="rb_nintendo">
+        <property name="text">
+         <string>Nintendo</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QRadioButton" name="rb_sony">
+        <property name="text">
+         <string>Sony</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QRadioButton" name="rb_microsoft">
+        <property name="text">
+         <string>Microsoft</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="4" column="1">
+     <widget class="QComboBox" name="cmb_plataforma">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <item>
+       <property name="text">
+        <string>PC</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="lbl_nota">
+      <property name="text">
+       <string>Nota (Metacritic): </string>
+      </property>
+      <property name="openExternalLinks">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QDoubleSpinBox" name="dspb_nota">
+      <property name="decimals">
+       <number>1</number>
+      </property>
+      <property name="maximum">
+       <double>10.000000000000000</double>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="0">
+     <widget class="QLabel" name="lbl_prestado">
+      <property name="text">
+       <string>Prestado: </string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="1">
+     <widget class="QCheckBox" name="chb_prestado">
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="0">
+     <widget class="QLabel" name="lbl_anotaciones">
+      <property name="text">
+       <string>Anotaciones: </string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="lbl_id">
+      <property name="font">
+       <font>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#0000ff;&quot;&gt;Id (no editable): &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::RichText</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="le_id">
+      <property name="cursor">
+       <cursorShape>ForbiddenCursor</cursorShape>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="1">
+     <widget class="QLineEdit" name="le_apuntes"/>
+    </item>
+    <item row="8" column="0">
+     <widget class="QPushButton" name="btn_imagen">
+      <property name="text">
+       <string>Cambiar imagen</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="1">
+     <widget class="QLabel" name="lbl_imagen">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>130</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Sans Serif</family>
+        <italic>true</italic>
+       </font>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <property name="text">
+       <string>Sin imagen</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
