@@ -1,0 +1,225 @@
+@charset "UTF-8";
+
+@font-face{
+    font-family: 'Baloo Tamma';
+    src: url(BalooTamma-Regular.ttf);
+}
+
+@-webkit-keyframes hvr-pulse-shrink{
+  to{
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+    }
+    }
+    
+@keyframes hvr-pulse-shrink{
+  to{
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+    }
+    }
+
+#admin{
+    color: #684E00;
+    }
+
+.centrar{
+	width:100%;
+	float:left;
+	text-align:center;
+    }
+
+.contenido{
+	background: #4FC3FF;
+    width: 980px;    
+    padding: 30px;
+    margin: auto;
+    content-align: center;
+    text-align: center;
+    }
+
+.anuncio{
+	display:inline-block;
+    width: 90%;
+    padding: 3%;
+    background: #96DBFE;
+    margin: auto;
+    transition: .3s ease;
+    box-shadow: 0 1px 1px rgba(0,0,0,.3);
+    border-radius: 10px;
+    border: solid thin #1C1CB3;
+    text-align: left;
+    }
+    
+.anuncio:hover{
+    box-shadow: 0 5px 20px rgba(0,0,0,.8);
+    transform: translateY(-10px) scale(1.02);
+    }
+    
+.anuncio:hover span{
+    background-position: -100% 0;
+    color: #fff;
+    }
+
+.anuncio-admin{
+	display:inline-block;
+    width: 90%;
+    padding: 3%;
+    background: #FFEFBF;
+    margin: auto;
+    transition: .3s ease;
+    box-shadow: 0 1px 1px rgba(0,0,0,.3);
+    border-radius: 10px;
+    border: solid thin #684E00;
+    text-align: left;
+    }
+    
+.anuncio-admin:hover{
+    box-shadow: 0 5px 20px rgba(0,0,0,.8);
+    transform: translateY(-10px) scale(1.02);
+    }
+    
+.anuncio-admin:hover span{
+    background-position: -100% 0;
+    color: #fff;
+    }
+
+.izquierda{
+	text-align: left;
+	float: left;
+	width: 50%;
+    }
+    
+.derecha{
+    text-align: right;
+    float: right;
+    width: 50%;
+    }
+
+div a, .boton{
+	text-decoration: none;
+	border-radius: 10px;
+    background: #fff;
+    padding: 5px;
+    font-weight: bold;
+    color: #4B0082;
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    }
+   
+div a:hover, div a:focus, div a:active, .boton:hover{
+    -webkit-animation-name: hvr-pulse-shrink;
+    animation-name: hvr-pulse-shrink;
+    -webkit-animation-duration: 0.3s;
+    animation-duration: 0.3s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
+    }
+
+span{
+    background: linear-gradient(to right, rgba(255,255,255,0) 50%, rgba(0, 0, 139,1.0) 50%);
+    background-size: 200%;
+    background-position: 0 0;
+    display: inline;
+    transition: .5s ease-in-out;
+    color: #4B0082;
+    }
+    
+.span-admin{
+	background: linear-gradient(to right, rgba(255,255,255,0) 50%, rgba(139, 0, 0,1.0) 50%);
+	background-size: 200%;
+    background-position: 0 0;
+    display: inline;
+    transition: .5s ease-in-out;
+	color: #684E00;
+    }
+
+body{
+    background: #eee;
+    display: flex;
+    font-family: raleway, arial, sans-serif;
+    }
+
+header{
+    float: left;
+    width: 100%;
+    height: 15%;
+    background: #4F6BFF;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 30px;
+    letter-spacing: 8px;
+    text-shadow: -1px -1px 0px #4F6BFF, 3px 3px 0px #4F6BFF, 6px 6px 0px #4054C3;
+    margin-bottom: 20px;
+    font-family: 'Baloo Tamma';
+    font-size: 30px;
+    }
+
+.header-admin{
+    background: #FFBD00;
+    text-shadow: -1px -1px 0px #FFBD00, 3px 3px 0px #FFBD00, 6px 6px 0px #C89500;
+    }
+
+h1{
+	text-align: center;
+	color: #fff
+    }
+
+h2{
+	display:inline-block;
+    color: #fff;
+    letter-spacing: 5px;
+    font-family: 'Baloo Tamma';
+    text-shadow: -1px -1px 0px #4FC3FF, 2px 2px 0px #4FC3FF, 4px 4px 0px #4054C3;
+    }
+
+.h2-admin{
+    text-shadow: -1px -1px 0px #FFD660, 2px 2px 0px #FFD660, 4px 4px 0px #C89500;
+    }
+
+form{
+    width: 90%;
+    padding: 3%;
+    background: #96DBFE;
+    margin: auto;
+    color: #4B0082;
+    border-radius: 10px;
+    border: solid thin #1C1CB3;
+    text-align: left;
+    }
+    
+.form-admin{
+	background: #FFEFBF;
+	color: #684E00;
+	border: solid thin #684E00;
+    }
+
+input, select, textarea{
+	border-radius: 5px;
+    }
+
+footer{
+	float: left;
+    width: 94%;
+    height: 15%;
+    background: #4F6BFF;
+    border-radius: 10px;
+    padding: 20px;
+    color: #fff;
+    line-height: 100%;
+    font-style: italic;
+    margin: 10px;
+    }
+
+.footer-admin{
+	background: #FFBD00;
+    }
+
+footer a{font-style: normal;}
