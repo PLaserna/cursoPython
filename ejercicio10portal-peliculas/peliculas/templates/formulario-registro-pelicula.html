@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<!--
+	Full Motion by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+    {% load static %}
+	    {% static 'imagenes' as ruta_imagenes %}
+	    {% static 'js' as ruta_js %}
+	<head>
+		<title>SecSeq - Nueva película</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="../static/css/main.css" />
+        <link rel="shortcut icon" type="image/png" href="{{ruta_imagenes}}/favicon.ico"/>
+	</head>
+	<body id="top">
+			<!-- Banner -->
+			<!--
+				To use a video as your background, set data-video to the name of your video without
+				its extension (eg. images/banner). Your video must be available in both .mp4 and .webm
+				formats to work correctly.
+			-->
+				<section id="banner" data-video="{{ruta_imagenes}}/banner">
+					<div class="inner">
+						<header>
+							<h1><span>S</span>econd <span>S</span>equel</h1>
+							<p>El portal de anuncios de películas de segunda visualización</p>
+						</header>
+						<a href="#main" class="more">Learn More</a>
+					</div>
+                </section>    
+            <!-- Main -->
+                <div id="main" style="margin: auto;text-align: center;">
+                    <h3>Introduce los datos de la película:</h3>
+                    <div class="inner" style="text-align: start;">
+                        <form method="POST" action="guardar-nueva-pelicula" enctype="multipart/form-data" class="formulario-registro">
+
+                            {% csrf_token %}
+                            
+                            <table class="tabla-formulario-registro">
+                                <tr>
+                                    <td>Título: </td>
+                                    <td colspan="3"><input type="text" name="titulo" required/></td>
+                                    <td>Año: </td>
+                                    <td><input type="number" name="anyo" min="1900" max="9999" required/></td>
+                                </tr>
+                                <tr>
+                                    <td>Director:</td>
+                                    <td><input type="text" name="director" required/></td>
+                                    <td>Duración: </td>
+                                    <td><input type="time" name="duracion" required/></td>
+                                    <td>Género: </td>
+                                    <td>
+                                        <select name="genero_id">
+                                            {% for g in generos %}
+                                                {% if g.id > 1 %}
+                                                    <option class="opciones" value="{{g.id}}">{{g.texto}}</option>
+                                                {% else %}
+                                                    <option class="opciones" value="{{g.id}}">Selecciona el género...</option>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Formato: </td>
+                                    <td colspan="5" style="vertical-align: baseline;">
+                                        <div style="display: flex; height: 0; justify-content: space-evenly;">
+                                            <input type="radio" id="vhs" name="formato" value="VHS" required/><label for="vhs"><img src="{{ruta_imagenes}}/logos/VHS_logo.svg.png" alt="VHS" width="47px"></label>
+                                            <input type="radio" id="dvd" name="formato" value="DVD"/><label for="dvd"><img src="{{ruta_imagenes}}/logos/DVD_logo.svg.png" alt="DVD" width="50px"></label>
+                                            <input type="radio" id="hddvd" name="formato" value="HD-DVD"/><label for="hddvd"><img src="{{ruta_imagenes}}/logos/Hd_dvd_logo.png" alt="HD-DVD" width="85px"></label>
+                                            <input type="radio" id="br" name="formato" value="Blu-ray"/><label for="br"><img src="{{ruta_imagenes}}/logos/Blu-ray_Disc.svg.png" alt="Blu-ray" width="55px"></label>
+                                            <input type="radio" id="bruhd" name="formato" value="Blu-ray Ultra HD"/><label for="bruhd"><img src="{{ruta_imagenes}}/logos/Ultra_HD_Blu-ray_logo.svg.png" alt="Blu-ray Ultra HD" width="65px"></label>
+                                            <input type="radio" id="otros" name="formato" value="Otros"/><label for="otros"><b>Otro</b></label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Sinopsis: </td>
+                                    <td colspan="5"><textarea name="sinopsis" rows="8" cols="80" placeholder="Escriba la sinopsis de la película..."></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td>Puntuación: </td>
+                                    <td colspan="2"><input type="range" name="puntuacion" id="puntuacion" min="1" max="100" oninput="mostrarPuntuacion(this.value)"/></td>
+                                    <td><span id="ver-puntuacion">50</span></td>
+                                    <td>Precio: </td>
+                                    <td><input type="float" name="precio" min="0.1" required/></td>
+                                </tr>
+                                <tr>
+                                    <td>Poster: </td>
+                                    <td colspan="2"><label for="seleccion-imagen" class="fit"><input type="file" name="poster" id="seleccion-imagen" accept=".jpg"/>Añadir imagen...</label></td>
+                                    <td colspan="3">
+                                        <div class="marco-imagen">
+                                            <img src="" id="img" onerror="this.src='{{ruta_imagenes}}/imagen-no-disponible.png';"/>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr style="border-top: solid 1px rgba(144, 144, 144, 0.25); background-color: rgba(144, 144, 144, 0.075);">
+                                    <td colspan="6" style="text-align: center;"><input type="submit" value="Registrar película"/></td>
+                                </tr>
+                            </table>
+
+                        </form>
+                        <div class="inner" style="text-align: center;">
+                            <a href="/peliculas">Volver al listado de películas</a>
+                        </div>
+                    </div>
+                </div>
+            <!-- Footer -->
+                <footer id="footer">
+                    <div class="inner">
+                        <h2>Información del sitio web</h2>
+                        <p>Proyecto de aplicación web para la gestión de un portal de venta de películas de segunda mano por parte de usuarios particulares. <br/> 
+                            La aplicación está realizada mediante el framework <a href="https://www.djangoproject.com">Django</a> y corresponde a una práctica para el curso de Python
+                            impartido por <br/> <a href="https://www.facebook.com/aresvillalba">Ares Sancho</a>, organizado por <a href="https://www.experis.es">Experis</a> y subvencionado por 
+                            <a href="https://atento.com/es">Atento.</a> </p>
+
+                        <ul class="icons">
+                            <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                            <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                            <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                            <li><a href="mailto:pedro.laserna@gmail.com" class="icon fa-envelope"><span class="label">Email</span></a></li>
+                        </ul>
+                        <p class="copyright">&copy; Pedro Laserna Lizana. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://www.themoviedb.org">TMDB</a>. Videos: <a href="https://www.pexels.com">Pexels</a>.</p>
+                    </div>
+                </footer>
+
+    <!-- Scripts -->
+        <script src="{{ruta_js}}/jquery.min.js"></script>
+        <script src="{{ruta_js}}/jquery.scrolly.min.js"></script>
+        <script src="{{ruta_js}}/jquery.poptrox.min.js"></script>
+        <script src="{{ruta_js}}/skel.min.js"></script>
+        <script src="{{ruta_js}}/util.js"></script>
+        <script src="{{ruta_js}}/main.js"></script>
+        <script type="text/javascript">
+            function mostrarPuntuacion(valor){ 
+                document.getElementById("ver-puntuacion").innerHTML = valor; 
+            }
+            
+            function init() {
+                var fichero = document.getElementById('seleccion-imagen');
+                fichero.addEventListener('change', mostrarImagen, false);
+                }
+        
+            function mostrarImagen(event) {
+                var file = event.target.files[0];
+                var reader = new FileReader();
+                reader.onload = function(event) {
+                    var img = document.getElementById('img');
+                    img.src = event.target.result;
+                    }
+                reader.readAsDataURL(file);
+                }
+            window.addEventListener('load', init, false);
+        </script>
+        <script type="application/javascript">
+            jQuery('input[type=file]').change(function(){
+             var filename = jQuery(this).val().split('\\').pop();
+             var idname = jQuery(this).attr('id');
+             console.log(jQuery(this));
+             console.log(filename);
+             console.log(idname);
+             jQuery('span.'+idname).next().find('span').html(filename);
+            });
+        </script>
+
+</body>
+</html>

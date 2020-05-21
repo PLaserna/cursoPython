@@ -1,0 +1,158 @@
+<!DOCTYPE HTML>
+<!--
+	Full Motion by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	{% load static %}
+		{% static 'imagenes' as ruta_imagenes %}
+		{% static 'js' as ruta_js %}
+	<head>
+		<title>SecSeq - Tus Películas</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="../static/css/main.css" />
+		<link rel="shortcut icon" type="image/png" href="{{ruta_imagenes}}/favicon.ico"/>
+	</head>
+	<body id="top">
+		
+		<!-- Banner -->
+			<!--
+				To use a video as your background, set data-video to the name of your video without
+				its extension (eg. images/banner). Your video must be available in both .mp4 and .webm
+				formats to work correctly.
+			-->
+				<section id="banner" data-video="{{ruta_imagenes}}/banner">
+					<div class="inner">
+						<header>
+							<h1><span>S</span>econd <span>S</span>equel</h1>
+							<p>El portal de anuncios de películas de segunda visualización</p>
+						</header>
+						<a href="#main" class="more">Learn More</a>
+					</div>
+                </section>
+                
+		<!-- Main -->
+            <div id="main" style="margin: auto;text-align: center;">
+                <h3>Listado de <span style="color: yellow;">Tus Películas:</span></h3>
+                <div class="inner" style="text-align: start;">
+                    <div class="barra">
+                        <div class="izquierda">
+                            {% if "id_usuario" in request.session %}
+                                <a href="logout-usuario">Cerrar sesión</a><b> | </b>
+                                <a href="registrar-pelicula">Registrar película</a>
+                            {% else %}
+                                * Debes iniciar sesión para poder registrar nuevas películas<b> | </b>
+                                <a href="login-usuario">Iniciar sesión</a><b> | </b>
+                                <a href="registrar-usuario">Registrarme</a>
+                            {% endif %}
+                        </div>
+                        <div class="derecha">
+                            <form action="/peliculas/mis-peliculas">
+                                Género: 
+                                <select name="genero_id">
+                                    <option value="">Todos</option>
+                                    {% for g in generos %}
+                                        {% if g.id != 1 %}
+                                            <option value="{{g.id}}" 
+                                            {% if g.id == genero_buscador %}
+                                                selected="selected"
+                                            {% endif %}
+                                            >{{g.texto}}</option>
+                                        {% endif %}
+                                    {% endfor %}
+                                </select>
+                                Título: <input type="text" name="titulo" value="{{titulo_buscador}}" />
+                                <input type="submit" value="Buscar"/><br/>
+                                <a href="/peliculas/mis-peliculas">Eliminar filtros</a>
+                            </form>
+                        </div>
+                        <div>
+                            <b>Películas usuario encontradas: {{total_resultados}}</b><br/>
+                            {% if anterior >= 0 %}
+                                <a href="/peliculas/mis-peliculas?comienzo={{anterior}}&titulo={{titulo_buscador}}">Anterior</a>
+                            {% endif %}
+                            {% if siguiente < total_resultados %}
+                                <a href="/peliculas/mis-peliculas?comienzo={{siguiente}}&titulo={{titulo_buscador}}">Siguiente</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                <!-- Boxes -->
+                    <div class="thumbnails">
+                        {% for p in peliculas %}
+                            <div class="box">
+                                <div class="image fit">
+                                    <img src="{{ruta_imagenes}}/{{p.id}}.jpg?um={{p.ultima_modificacion}}"" onerror="this.src='{{ruta_imagenes}}/imagen-no-disponible.png';" alt=""/>
+                                </div>
+                                <div class="inner">
+                                    <h3>{{p.titulo}} ({{p.anyo}})</h3>
+                                    <p>
+                                        {% if p.formato == "VHS" %}
+                                            <img src="{{ruta_imagenes}}/logos/VHS_logo.svg.png" alt="VHS" width="47px">
+                                        {% elif p.formato == "DVD" %}
+                                            <img src="{{ruta_imagenes}}/logos/DVD_logo.svg.png" alt="DVD" width="50px">
+                                        {% elif p.formato == "HD-DVD" %}
+                                            <img src="{{ruta_imagenes}}/logos/Hd_dvd_logo.png" alt="HD-DVD" width="85px">
+                                        {% elif p.formato == "Blu-ray" %}
+                                            <img src="{{ruta_imagenes}}/logos/Blu-ray_Disc.svg.png" alt="Blu-ray" width="55px">
+                                        {% elif p.formato == "Blu-ray Ultra HD" %}
+                                            <img src="{{ruta_imagenes}}/logos/Ultra_HD_Blu-ray_logo.svg.png" alt="Blu-ray Ultra HD" width="65px">
+                                        {% else %}
+                                            <b>Otro</b>
+                                        {% endif %}
+                                        <br/>
+                                        Precio: <b>{{p.precio}} euros</b>
+                                        <br/>
+                                        Última modificación: <br/><b>{{p.ultima_modificacion}}</b>
+                                        <br/>
+                                    </p>
+                                    <b><a href="borrar-pelicula?id={{p.id}}" class="button icon style3" style="margin: auto;color: orangered;" onclick="return confirm('¿Estás seguro de borrar la película?');">Borrar</a>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <a href="editar-pelicula?id={{p.id}}" class="button icon style2" style="margin: auto; color: yellow;">Editar</a></b>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div>
+                        {% if anterior >= 0 %}
+                            <a href="/peliculas/mis-peliculas?comienzo={{anterior}}&titulo={{titulo_buscador}}">Anterior</a>
+                        {% endif %}
+                        {% if siguiente < total_resultados %}
+                            <a href="/peliculas/mis-peliculas?comienzo={{siguiente}}&titulo={{titulo_buscador}}">Siguiente</a>
+                        {% endif %}
+                    </div>
+                    <div class="inner" style="text-align: center;">
+                        <a href="/peliculas">Volver al listado global</a>
+                    </div>
+                </div>
+            </div>
+
+        <!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<h2>Información del sitio web</h2>
+					<p>Proyecto de aplicación web para la gestión de un portal de venta de películas de segunda mano por parte de usuarios particulares. <br/> 
+						La aplicación está realizada mediante el framework <a href="https://www.djangoproject.com">Django</a> y corresponde a una práctica para el curso de Python
+						impartido por <br/> <a href="https://www.facebook.com/aresvillalba">Ares Sancho</a>, organizado por <a href="https://www.experis.es">Experis</a> y subvencionado por 
+						<a href="https://atento.com/es">Atento.</a> </p>
+
+					<ul class="icons">
+						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="mailto:pedro.laserna@gmail.com" class="icon fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+					<p class="copyright">&copy; Pedro Laserna Lizana. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://www.themoviedb.org">TMDB</a>. Videos: <a href="https://www.pexels.com">Pexels</a>.</p>
+				</div>
+			</footer>
+
+        <!-- Scripts -->
+            <script src="{{ruta_js}}/jquery.min.js"></script>
+            <script src="{{ruta_js}}/jquery.scrolly.min.js"></script>
+            <script src="{{ruta_js}}/skel.min.js"></script>
+            <script src="{{ruta_js}}/util.js"></script>
+            <script src="{{ruta_js}}/main.js"></script>
+
+    </body>
+</html>

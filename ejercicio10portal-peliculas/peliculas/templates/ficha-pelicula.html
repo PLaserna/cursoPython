@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+    {% load static %}
+		{% static 'imagenes' as ruta_imagenes %}
+		{% static 'js' as ruta_js %}
+<head>
+    <title>SecSeq - Ficha</title>
+    <link rel="stylesheet" href="../static/css/main.css" />
+</head>
+<body id="top" style="background-color: rgba(144, 144, 144, 0.25);">
+    <div id="main">
+        <div class="inner" style="text-align: start;">
+            <table>
+                <caption><h2>{{pelicula.titulo}} ({{pelicula.anyo}})</h2></caption>
+                <tr>
+                    <td>Género:  <b>{{pelicula.genero}}</b></td>
+                    <td>Formato:  
+                        {% if pelicula.formato == "VHS" %}
+								<img src="{{ruta_imagenes}}/logos/VHS_logo.svg.png" alt="VHS" width="47px">
+							{% elif pelicula.formato == "DVD" %}
+								<img src="{{ruta_imagenes}}/logos/DVD_logo.svg.png" alt="DVD" width="50px">
+							{% elif pelicula.formato == "HD-DVD" %}
+								<img src="{{ruta_imagenes}}/logos/Hd_dvd_logo.png" alt="HD-DVD" width="85px">
+							{% elif pelicula.formato == "Blu-ray" %}
+								<img src="{{ruta_imagenes}}/logos/Blu-ray_Disc.svg.png" alt="Blu-ray" width="55px">
+							{% elif pelicula.formato == "Blu-ray Ultra HD" %}
+								<img src="{{ruta_imagenes}}/logos/Ultra_HD_Blu-ray_logo.svg.png" alt="Blu-ray Ultra HD" width="65px">
+							{% else %}
+							<b>Otro</b>
+						{% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Director:  <b>{{pelicula.director}}</b></td>
+                    <td>Duración:  <b>{{pelicula.duracion}} horas</b></td>
+                </tr>
+                <tr>
+                    <td>Puntuación:  <b>{{pelicula.puntuacion}}</b></td>
+                </tr>
+                <tr>
+                    <td colspan="2">Sinopsis:  <b>{{pelicula.sinopsis}}</b></td>
+                </tr>
+                <tr>
+                    <td>Precio:  <span style="color: yellow;font-weight: bold;">{{pelicula.precio}} euros</span></td>
+                    <td>Email:  <span style="color: yellow;font-weight: bold;">{{pelicula.usuario.email}}</span></td>
+                </tr>
+            </table>
+        </div>
+        <br/>
+        <div class="inner" style="width: 100%;">
+            <a href="" class="button style3 fit" style="width: fit-content; margin: auto;" onclick="parent.location.reload();">Cerrar ventana</a>
+        </div>
+    </div>
+</body>
+</html>
